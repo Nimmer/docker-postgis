@@ -41,6 +41,6 @@ if (( num_files > 0 )); then
     else
         PBF_FILE=/data/import/`ls /data/import/`
     fi
-    osm2pgsql -d gis $PBF_FILE
+    osm2pgsql -d --cache-strategy sparse gis $PBF_FILE
 fi
 
