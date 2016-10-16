@@ -9,8 +9,7 @@ RUN apt-get update \
                  postgresql-9.5-postgis-2.2 \
                  osm2pgsql \
                  osmosis \
-                 postgresql-9.5-postgis-2.2-scripts \
-      && rm -rf /var/lib/apt/lists/*
+                 postgresql-9.5-postgis-2.2-scripts
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh

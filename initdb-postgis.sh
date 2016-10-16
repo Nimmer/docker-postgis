@@ -21,14 +21,14 @@ echo "Loading PostGIS extensions into 'gis'"
 CREATE EXTENSION IF NOT EXISTS postgis;
 EOSQL
 
-num_files=`ls /data/import/*.osm | wc -l`
+num_files=`ls /data/import/*.osm* | wc -l`
 
 if (( num_files > 0 )); then
  PBF_FILE=""
  if (( num_files > 1 )); then
      osmosis_cmd="osmosis"
      first=true
-     for i in /data/import/*.osm; do
+     for i in /data/import/*.osm*; do
          osmosis_cmd="$osmosis_cmd --rx $i"
          if $first; then
              first=false
@@ -41,5 +41,5 @@ if (( num_files > 0 )); then
  else
      PBF_FILE=/data/import/`ls /data/import/`
  fi
- osm2pgsql -d --cache-strategy sparse gis $PBF_FILE
+ osm2pgsql --cache-strategy sparse -d  gis $PBF_FILE
 fi
