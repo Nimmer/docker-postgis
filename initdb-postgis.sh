@@ -42,5 +42,5 @@ if (( num_files > 0 )); then
  else
      PBF_FILE=/data/import/`ls /data/import/`
  fi
- osm2pgsql --cache-strategy sparse --number-processes 8 --slim --drop --hstore -d gis $PBF_FILE
+ osm2pgsql --cache-strategy sparse --number-processes 1 --slim --hstore -d gis $PBF_FILE
 fi
