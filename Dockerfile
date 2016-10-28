@@ -1,5 +1,5 @@
 FROM postgres:9.5
-MAINTAINER Matus Demko <matus.demko@ui42.sk>
+MAINTAINER Matúš Demko <matus.demko@ui42.sk>
 
 ENV POSTGIS_MAJOR 2.2
 ENV POSTGIS_VERSION 2.2
